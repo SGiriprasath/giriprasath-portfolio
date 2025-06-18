@@ -23,7 +23,7 @@ function Projects() {
         "Integrated models into applications for seamless user interaction and automated decision-making."
       ],
       image: "/images/face-recognition.png",
-      technologies: ["Machine Learning", "OpenCV", "Python", "Face Recognition"],
+      technologies: ["OpenCV", "Python", "Face Recognition"],
       link: "#"
     }
   ];
