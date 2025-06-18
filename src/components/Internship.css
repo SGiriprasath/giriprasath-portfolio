@@ -1,0 +1,137 @@
+.internship-section {
+  padding: 2.5rem;
+  margin: 4rem auto;
+  background-color: #232946; /* Section background */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #53025a;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.internship-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6);
+}
+
+.internship-section h2 {
+  color: #8c7ae6; /* Changed to desired color */
+  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Match App.css */
+}
+
+.internship-item {
+  margin-bottom: 25px;
+  padding-left: 0;
+  position: relative;
+}
+
+.internship-item h3 {
+  color: #ffac41; /* Orange for company names */
+  margin-bottom: 5px;
+  font-size: 1.8em; /* Match App.css */
+}
+
+.internship-item p.internship-role {
+  font-style: normal;
+  color: #007bff; /* Changed to blue for role */
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.internship-item ul {
+  list-style-type: none; /* Ensure no default bullet points */
+  margin-left: 0;
+  color: #c0c0c0; /* Lighter grey for text */
+}
+
+.internship-item ul li {
+  list-style-type: none !important; /* Ensure no default bullet points */
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.internship-item ul li::before {
+  content: '\2022'; /* Custom bullet point */
+  color: #ffac41; /* Orange for bullet points */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 1.2em;
+}
+
+@media (max-width: 1024px) {
+  .internship-section {
+    padding: 2.2rem 2rem;
+    margin: 3.5rem auto;
+  }
+
+  .internship-section h2 {
+    font-size: 2.3rem;
+  }
+
+  .internship-item h3 {
+    font-size: 1.7em;
+  }
+
+  .internship-item p.internship-role {
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 768px) {
+  .internship-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .internship-section h2 {
+    font-size: 2rem;
+  }
+
+  .internship-item h3 {
+    font-size: 1.6em;
+  }
+
+  .internship-item p.internship-role {
+    font-size: 1em;
+  }
+
+  .internship-item ul li {
+    padding-left: 20px;
+    margin-bottom: 8px; /* Slightly reduce margin for mobile list items */
+  }
+}
+
+@media (max-width: 480px) {
+  .internship-section {
+    padding: 1.5rem 1rem;
+    margin: 2.5rem auto;
+  }
+
+  .internship-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .internship-item {
+    margin-bottom: 20px;
+  }
+
+  .internship-item h3 {
+    font-size: 1.4em;
+  }
+
+  .internship-item p.internship-role {
+    font-size: 0.9em;
+  }
+
+  .internship-item ul li {
+    padding-left: 15px;
+    font-size: 0.9em;
+    margin-bottom: 6px; /* Further reduce margin for smaller screens */
+  }
+} 

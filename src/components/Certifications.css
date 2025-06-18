@@ -1,0 +1,107 @@
+.certifications-section {
+  padding: 2.5rem;
+  margin: 4rem auto;
+  background-color: #232946; /* Section background */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #53025a;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.certifications-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6);
+}
+
+.certifications-section h2 {
+  color: #8c7ae6; /* Changed to desired color */
+  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Match App.css */
+}
+
+.certifications-section ul {
+  list-style-type: none; /* Ensure no default bullet points */
+  margin-left: 0;
+  color: #c0c0c0; /* Lighter grey for text */
+}
+
+.certifications-section ul li {
+  list-style-type: none !important; /* Ensure no default bullet points */
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1.1em;
+}
+
+.certifications-section ul li::before {
+  content: '\2022'; /* Custom bullet point */
+  color: #ffac41; /* Orange for bullet points */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 1.2em;
+}
+
+.certification-link {
+  color: #007bff; /* Changed to blue for links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.certification-link:hover {
+  color: #ed72f8; /* Pink on hover */
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .certifications-section {
+    padding: 2.2rem 2rem;
+    margin: 3.5rem auto;
+  }
+
+  .certifications-section h2 {
+    font-size: 2.3rem;
+  }
+
+  .certifications-section ul li {
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .certifications-section h2 {
+    font-size: 2rem;
+  }
+
+  .certifications-section ul li {
+    font-size: 1em;
+    padding-left: 20px;
+    margin-bottom: 8px; /* Slightly reduce margin for mobile list items */
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-section {
+    padding: 1.5rem 1rem;
+    margin: 2.5rem auto;
+  }
+
+  .certifications-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .certifications-section ul li {
+    font-size: 0.9em;
+    padding-left: 15px;
+    margin-bottom: 6px; /* Further reduce margin for smaller screens */
+  }
+} 

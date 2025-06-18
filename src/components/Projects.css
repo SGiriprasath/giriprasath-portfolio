@@ -1,0 +1,225 @@
+.projects-section {
+  padding: 4rem 2.5rem;
+  background: #1a1a2e; /* Dark background matching body */
+  margin-bottom: 4rem;
+  border-radius: 20px;
+}
+
+.projects-section h2 {
+  color: #8c7ae6; /* Changed to desired color */
+  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Match App.css */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+}
+
+.project-card {
+  background: #2a2a4a; /* Darker purple for card background */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px #53025a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+  border: 1px solid #ed72f8; /* Pink border on hover */
+}
+
+.project-image {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(228, 88, 88, 0.9); /* Vibrant red overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+}
+
+.project-link:hover {
+  background: white;
+  color: #e45858; /* Red on hover */
+}
+
+.project-content {
+  padding: 2rem;
+  color: #c0c0c0; /* Light grey for content text */
+}
+
+.project-content h3 {
+  margin: 0 0 1rem;
+  color: #ffac41; /* Changed to #ffac41 */
+  font-size: 1.5rem;
+}
+
+.project-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.project-content li {
+  margin-bottom: 0.7rem;
+  color: #c0c0c0; /* Light grey for list items */
+  font-size: 1em;
+  line-height: 1.6;
+  padding-left: 25px; /* Space for custom bullet */
+  position: relative;
+}
+
+.project-content li::before {
+  content: '\2022'; /* Custom bullet point */
+  color: #ffac41; /* Orange for bullet points */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 1.2em;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%); /* Purple to Orange gradient */
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px #53025a;
+}
+
+.tech-tag:hover {
+}
+
+@media (max-width: 1024px) {
+  .projects-section {
+    padding: 3.5rem 2rem;
+  }
+
+  .projects-grid {
+    gap: 2rem;
+  }
+
+  .project-image {
+    height: 300px; /* Slightly reduce image height for tablets */
+  }
+
+  .project-content {
+    padding: 1.8rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .project-content li {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .project-image {
+    height: 250px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.3em;
+  }
+
+  .project-content li {
+    font-size: 0.9em;
+  }
+
+  .tech-tag {
+    font-size: 0.8em;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 2rem 1rem;
+  }
+
+  .projects-grid {
+    gap: 1.5rem;
+  }
+
+  .project-image {
+    height: 200px; /* Further reduce image height for smaller phones */
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.1em;
+  }
+
+  .project-content li {
+    font-size: 0.85em;
+    padding-left: 20px;
+  }
+
+  .tech-tag {
+    font-size: 0.75em;
+    padding: 0.25rem 0.7rem;
+  }
+} 

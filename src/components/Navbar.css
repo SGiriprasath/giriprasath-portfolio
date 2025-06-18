@@ -1,0 +1,207 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Increased z-index to be above Three.js scene */
+  background: rgba(15, 12, 41, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #ffac41;
+  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #8c7ae6;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffac41;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link.active {
+  color: #ffac41;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link.active::before {
+  transform: scaleX(1);
+}
+
+/* Hamburger Menu Styles */
+.menu-toggle {
+  display: none; /* Hidden by default for desktop */
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 1001; /* Ensure it's above other content */
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ffac41; /* Orange color for hamburger lines */
+  border-radius: 3px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  top: 10px;
+}
+
+.hamburger.open {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::before {
+  top: 0;
+  opacity: 0;
+}
+
+.hamburger.open::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .nav-content {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; /* Below navbar height */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(15, 12, 41, 0.95); /* Darker background for mobile menu */
+    backdrop-filter: blur(15px);
+    gap: 0.8rem; /* Adjusted gap */
+    max-height: 0; /* Hidden by default */
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    align-items: center; /* Center items in column layout */
+  }
+
+  .nav-links.open {
+    max-height: 600px; /* Increased greatly to ensure all content fits */
+    padding: 2rem 1.5rem; /* Consistent horizontal padding for the entire menu */
+    justify-content: center; /* Center items vertically */
+  }
+
+  .nav-link {
+    font-size: 1em;
+    padding: 0.8rem 0; /* No horizontal padding here, let parent handle it */
+    width: 100%; /* Make links take full available width within padded container */
+    text-align: center; /* Ensure text is centered within the button */
+    margin: 0 auto; /* Center individual links */
+  }
+
+  .nav-content {
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap; /* Allow wrapping in nav-content */
+    justify-content: space-between; 
+  }
+
+  .nav-logo {
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links.open {
+    padding: 1.5rem 1rem; /* Adjust padding for very small screens */
+  }
+
+  .nav-link {
+    padding: 0.7rem 0; /* No horizontal padding here */
+    width: 100%; /* Make links take full available width within padded container */
+  }
+
+  .nav-content {
+    padding: 0.6rem 0.5rem; /* Further reduce padding for smaller screens */
+  }
+
+  .nav-logo {
+    font-size: 1.2em;
+  }
+} 

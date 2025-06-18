@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
+html {
+  scroll-padding-top: 300px;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  position: relative; /* Establish positioning context */
+}
+
+.three-scene-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Keep at 0 for background */
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.main-content {
+  flex: 1;
+  padding: 0 2rem;
+  background: rgba(26, 26, 46, 0.8);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 1; /* Above Three.js scene */
+  position: relative;
+  padding-top: 80px; /* Add top padding to prevent content from hiding behind navbar */
 }
 
-.App-link {
-  color: #61dafb;
+section {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  background: none; /* Let section-content manage background */
+  border-radius: 0;
+  box-shadow: none;
+  scroll-margin-top: 70px; /* Adjust for fixed navbar height */
+  position: relative;
+  min-height: auto;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(140, 122, 230, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 172, 65, 0.15) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(140, 122, 230, 0.1) 0%, transparent 100%);
+  z-index: 1;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px #53025a,
+    0 0 0 1px rgba(2, 93, 121, 0.05);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.section-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(2, 93, 121, 0.6);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #8c7ae6;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5em;
+  background: linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px #53025a; /* New dark pink shadow for h1 text */
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #8c7ae6;
+}
+
+h3 {
+  font-size: 2em;
+  color: #ffac41;
+}
+
+p {
+  color: #c0c0c0;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: #8c7ae6;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #ffac41;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px #53025a; /* New dark pink shadow for cards by default */
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(2, 93, 121, 0.6); /* Slightly stronger dark blue/green shadow on hover */
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Lists */
+ul, ol {
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+li {
+  color: #c0c0c0;
+  margin-bottom: 0.5rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 12, 41, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8c7ae6 0%, #ffac41 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ffac41 0%, #8c7ae6 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section-content {
+    padding: 1.8rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 0 1.5rem;
+    padding-top: 80px; /* Add padding to account for fixed navbar */
+  }
+
+  section {
+    padding: 0; /* Ensures components manage their own padding within */
+  }
+
+  .section-content {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0 1rem;
+    padding-top: 80px; /* Ensure top padding is maintained */
+  }
+  .section-content {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.9em;
   }
 }

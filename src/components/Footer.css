@@ -1,0 +1,87 @@
+.footer {
+  background-color: #1a1a2e; /* Dark background matching body */
+  color: #e0e0e0; /* Light text */
+  text-align: center;
+  padding: 2.5rem;
+  margin-top: 4rem;
+  border-top: 2px solid #8c7ae6; /* Purple accent border */
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+  border-radius: 10px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.footer-social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-social-links a {
+  color: #e45858; /* Vibrant red for icons */
+  font-size: 1.8em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-links a:hover {
+  color: #ffac41; /* Orange on hover */
+  transform: translateY(-5px);
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .footer p {
+    font-size: 0.95em;
+  }
+
+  .footer-social-links {
+    gap: 1.2rem;
+  }
+
+  .footer-social-links a {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .footer p {
+    font-size: 0.9em;
+  }
+
+  .footer-social-links a {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.2rem; /* Adjusted padding for very small screens */
+    margin-top: 2.5rem;
+  }
+
+  .footer p {
+    font-size: 0.8em;
+  }
+
+  .footer-social-links {
+    gap: 0.8rem; /* Further reduce gap for smaller screens */
+  }
+
+  .footer-social-links a {
+    font-size: 1.3em;
+  }
+} 

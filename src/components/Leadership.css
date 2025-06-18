@@ -1,0 +1,135 @@
+.leadership-section {
+  padding: 2.5rem;
+  margin: 4rem auto;
+  background-color: #232946; /* Section background */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #53025a;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leadership-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6);
+}
+
+.leadership-section h2 {
+  color: #8c7ae6; /* Changed to desired color */
+  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Match App.css */
+}
+
+.leadership-item {
+  margin-bottom: 25px;
+}
+
+.leadership-item h3 {
+  color: #ffac41; /* Orange for role names */
+  margin-bottom: 5px;
+  font-size: 1.8em; /* Match App.css */
+}
+
+.leadership-item p.leadership-role {
+  font-style: normal;
+  color: #007bff; /* Changed to blue for organization */
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.leadership-section ul {
+  list-style-type: none; /* Ensure no default bullet points */
+  margin-left: 0;
+  color: #c0c0c0; /* Lighter grey for text */
+}
+
+.leadership-section ul li {
+  list-style-type: none !important; /* Ensure no default bullet points */
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.leadership-section ul li::before {
+  content: '\2022'; /* Custom bullet point */
+  color: #ffac41; /* Orange for bullet points */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 1.2em;
+}
+
+@media (max-width: 1024px) {
+  .leadership-section {
+    padding: 2.2rem 2rem;
+    margin: 3.5rem auto;
+  }
+
+  .leadership-section h2 {
+    font-size: 2.3rem;
+  }
+
+  .leadership-item h3 {
+    font-size: 1.7em;
+  }
+
+  .leadership-item p.leadership-role {
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .leadership-section h2 {
+    font-size: 2rem;
+  }
+
+  .leadership-item h3 {
+    font-size: 1.6em;
+  }
+
+  .leadership-item p.leadership-role {
+    font-size: 1em;
+  }
+
+  .leadership-section ul li {
+    padding-left: 20px;
+    margin-bottom: 8px; /* Slightly reduce margin for mobile list items */
+  }
+}
+
+@media (max-width: 480px) {
+  .leadership-section {
+    padding: 1.5rem 1rem;
+    margin: 2.5rem auto;
+  }
+
+  .leadership-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .leadership-item {
+    margin-bottom: 20px;
+  }
+
+  .leadership-item h3 {
+    font-size: 1.4em;
+  }
+
+  .leadership-item p.leadership-role {
+    font-size: 0.9em;
+  }
+
+  .leadership-section ul li {
+    padding-left: 15px;
+    font-size: 0.9em;
+    margin-bottom: 6px; /* Further reduce margin for smaller screens */
+  }
+} 

@@ -1,0 +1,129 @@
+.skills-section {
+  padding: 2.5rem;
+  margin: 4rem auto;
+  background-color: #232946; /* Section background */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px  #53025a;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-left-width 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skills-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6) ;
+}
+
+.skills-section h2 {
+  color: #8c7ae6; /* Changed to desired color */
+  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem; /* Match App.css */
+}
+
+.skill-category {
+  margin-bottom: 25px;
+  padding-left: 20px;
+  border-left: 5px solid #8c7ae6; /* Purple accent border */
+  position: relative;
+  transition: border-color 0.3s ease-in-out, border-left-width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.skill-category:hover {
+  border-left-color: #ed72f8; /* Orange on hover */
+  border-left-width: 10px; /* Thicker border on hover */
+  transform: translateX(10px); /* Move right slightly on hover */
+}
+
+.skill-category h3 {
+  color: #ffac41; /* Orange for skill category names */
+  margin-bottom: 5px;
+  font-size: 1.8em; /* Match App.css */
+}
+
+.skill-category p {
+  margin: 0;
+  color: #c0c0c0; /* Lighter grey for text */
+  font-size: 1.1em; /* Match App.css */
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px #53025a;
+  transition: transform 0.2s ease;
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .skills-section {
+    padding: 2.2rem 2rem;
+    margin: 3.5rem auto;
+  }
+
+  .skills-section h2 {
+    font-size: 2.3rem;
+  }
+
+  .skill-category h3 {
+    font-size: 1.7em;
+  }
+
+  .skill-category p {
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .skills-section h2 {
+    font-size: 2rem;
+  }
+
+  .skill-category {
+    padding-left: 18px; /* Adjusted padding for better alignment */
+  }
+
+  .skill-category h3 {
+    font-size: 1.6em;
+  }
+
+  .skill-category p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 1.5rem 1rem;
+    margin: 2.5rem auto;
+  }
+
+  .skills-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .skill-category {
+    margin-bottom: 20px;
+    padding-left: 15px;
+  }
+
+  .skill-category h3 {
+    font-size: 1.4em;
+  }
+
+  .skill-category p {
+    font-size: 0.9em;
+  }
+} 
