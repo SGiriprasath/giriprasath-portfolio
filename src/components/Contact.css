@@ -273,4 +273,167 @@
     font-size: 0.9em;
     padding: 0.8rem;
   }
+}
+
+.alert-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 99998;
+}
+
+.alert-popup {
+  position: relative;
+  background: rgba(35, 41, 70, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  min-width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  z-index: 99999;
+}
+
+.alert-popup.success {
+  border: 2px solid rgba(140, 122, 230, 0.4);
+  box-shadow: 0 20px 50px rgba(140, 122, 230, 0.3);
+}
+
+.alert-popup.error {
+  border: 2px solid rgba(228, 88, 88, 0.4);
+  box-shadow: 0 20px 50px rgba(228, 88, 88, 0.3);
+}
+
+.alert-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: bounceIn 0.5s ease-out;
+}
+
+.alert-popup.success .alert-icon {
+  color: #8c7ae6;
+  text-shadow: 0 0 20px rgba(140, 122, 230, 0.4);
+}
+
+.alert-popup.error .alert-icon {
+  color: #e45858;
+  text-shadow: 0 0 20px rgba(228, 88, 88, 0.4);
+}
+
+.alert-message {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.alert-close-btn {
+  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(228, 88, 88, 0.4);
+}
+
+.alert-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(228, 88, 88, 0.6);
+}
+
+.alert-close-btn:active {
+  transform: translateY(1px);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Make all other content unclickable when popup is shown */
+body.popup-active {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+body.popup-active .alert-popup-container {
+  pointer-events: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alert-popup {
+    min-width: 280px;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .alert-icon {
+    font-size: 3.5rem;
+  }
+
+  .alert-message {
+    font-size: 1.2rem;
+  }
+
+  .alert-close-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .alert-popup {
+    padding: 1.8rem;
+    margin: 0.8rem;
+    width: calc(100% - 2rem);
+  }
+
+  .alert-icon {
+    font-size: 3rem;
+  }
+
+  .alert-message {
+    font-size: 1.1rem;
+  }
+
+  .alert-close-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
 } 

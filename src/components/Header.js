@@ -132,16 +132,11 @@ function Header() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/giriprasath_resume.pdf';
-              link.download = 'Giriprasath_S_Resume.pdf';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
+              window.open('/giriprasath_resume.pdf', '_blank');
             }}
           >
-            <span>Download Resume</span>
-            <i className="fas fa-download"></i>
+            <span>View Resume</span>
+            <i className="fas fa-external-link-alt"></i>
           </motion.button>
         </motion.div>
       </div>
