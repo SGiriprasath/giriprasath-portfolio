@@ -61,7 +61,7 @@ function Skills() {
         transition={{ delay: 2 * 0.1 }}
       >
         <h3>AI Tools:</h3>
-        <p>Cursor, Windswept.</p>
+        <p>Cursor, Windsurf.</p>
       </motion.div>
       <motion.div 
         className="skill-category"
