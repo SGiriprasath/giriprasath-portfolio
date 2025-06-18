@@ -36,7 +36,7 @@ function Certifications() {
         whileTap="tap"
         transition={{ delay: 0 * 0.1 }}
       >
-        <h3>Machine Learning with Python</h3>
+        <h3>🎯1st Prize for presenting the project ”IoT- Home Automation” at Karpagam College</h3>
         <p></p>
         <p className="certification-date"></p>
       </motion.div>
@@ -49,7 +49,7 @@ function Certifications() {
         whileTap="tap"
         transition={{ delay: 1 * 0.1 }}
       >
-        <h3>Python for Data Science</h3>
+        <h3>🎯Python Course Completion, GUVI</h3>
         <p></p>
         <p className="certification-date"></p>
       </motion.div>
@@ -62,7 +62,46 @@ function Certifications() {
         whileTap="tap"
         transition={{ delay: 2 * 0.1 }}
       >
-        <h3>Data Analysis with Python</h3>
+        <h3>🎯Certificate of Completion, Coursera: AWS</h3>
+        <p></p>
+        <p className="certification-date"></p>
+      </motion.div>
+      <motion.div 
+        className="certification-item"
+        variants={certificationItemVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ delay: 2 * 0.1 }}
+      >
+        <h3>🎯4th Place, State Level Kho Kho Tournament, Kongu Alumni Trophy</h3>
+        <p></p>
+        <p className="certification-date"></p>
+      </motion.div>
+      <motion.div 
+        className="certification-item"
+        variants={certificationItemVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ delay: 2 * 0.1 }}
+      >
+        <h3>🎯Participant, PeCan+ Capture the Flag (CTF), Edith Cowan University by Pals</h3>
+        <p></p>
+        <p className="certification-date"></p>
+      </motion.div>
+      <motion.div 
+        className="certification-item"
+        variants={certificationItemVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ delay: 2 * 0.1 }}
+      >
+        <h3>🎯Certificate of Participation, Yukthi CTF, organized by Tamil Nadu Police</h3>
         <p></p>
         <p className="certification-date"></p>
       </motion.div>
