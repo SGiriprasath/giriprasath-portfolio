@@ -37,8 +37,8 @@ function Certifications() {
         transition={{ delay: 0 * 0.1 }}
       >
         <h3>Machine Learning with Python</h3>
-        <p>IBM</p>
-        <p className="certification-date">2023</p>
+        <p></p>
+        <p className="certification-date"></p>
       </motion.div>
       <motion.div 
         className="certification-item"
@@ -50,8 +50,8 @@ function Certifications() {
         transition={{ delay: 1 * 0.1 }}
       >
         <h3>Python for Data Science</h3>
-        <p>IBM</p>
-        <p className="certification-date">2023</p>
+        <p></p>
+        <p className="certification-date"></p>
       </motion.div>
       <motion.div 
         className="certification-item"
@@ -63,8 +63,8 @@ function Certifications() {
         transition={{ delay: 2 * 0.1 }}
       >
         <h3>Data Analysis with Python</h3>
-        <p>IBM</p>
-        <p className="certification-date">2023</p>
+        <p></p>
+        <p className="certification-date"></p>
       </motion.div>
     </motion.section>
   );
