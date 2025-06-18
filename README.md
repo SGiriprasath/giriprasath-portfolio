@@ -78,3 +78,4 @@ giriprasath-portfolio/
 ## Contact
 
 For any questions or issues, please contact [Your Contact Information]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f44e224e-1d15-4ec7-bc00-d97cad364b16/deploy-status)](https://app.netlify.com/projects/giriprasaths/deploys)
