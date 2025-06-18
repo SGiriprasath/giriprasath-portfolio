@@ -94,7 +94,7 @@ function Header() {
             variants={itemVariants}
           >
             <i className="fas fa-map-marker-alt"></i>
-            <span>Erode, Tamil Nadu</span>
+            <span>chennai, Tamil Nadu</span>
           </motion.span>
         </div>
 
