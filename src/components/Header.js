@@ -68,14 +68,14 @@ function Header() {
 
         <div className="contact-links">
           <motion.a 
-            href="mailto:giriprasathshks@gmail.com" 
+            href="mailto:giriprasathsks@gmail.com" 
             className="contact-link"
             whileHover={{ scale: 1.05, boxShadow: "0 8px 25px #53025a" }}
             whileTap={{ scale: 0.95 }}
             variants={itemVariants}
           >
             <i className="fas fa-envelope"></i>
-            <span>giriprasathshks@gmail.com</span>
+            <span>giriprasathsks@gmail.com</span>
           </motion.a>
           <motion.a 
             href="tel:+917904602922" 
