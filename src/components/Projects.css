@@ -38,19 +38,28 @@
 .project-image {
   position: relative;
   overflow: hidden;
-  min-height: 260px;
+  min-height: 340px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.2rem;
 }
 
 .project-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.5s ease;
   display: block;
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.07);
+  transform: scale(1.03);
 }
 
 
@@ -65,13 +74,55 @@
   justify-content: center;
 }
 
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
 .project-content h3 {
   font-family: 'Outfit', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: rgba(240, 240, 255, 0.95);
-  margin-bottom: 1rem;
+  margin: 0;
   line-height: 1.4;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+}
+
+.project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 50px;
+  background: rgba(108, 99, 255, 0.07);
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  color: #a5b4fc;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.project-action-btn:hover {
+  background: linear-gradient(135deg, #6c63ff 0%, #00d4ff 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+}
+
+.project-action-btn i {
+  font-size: 0.95rem;
 }
 
 .project-content ul {
@@ -133,7 +184,7 @@
 /* Tablet — switch to stacked layout */
 @media (max-width: 900px) {
   .project-card { grid-template-columns: 1fr; }
-  .project-image { min-height: 220px; }
+  .project-image { min-height: 300px; }
   .project-content { padding: 1.8rem 2rem; }
 }
 
@@ -142,7 +193,7 @@
   .projects-section { padding: 2rem 0; }
   .projects-grid { gap: 1.5rem; }
   .project-card { border-radius: 18px; }
-  .project-image { min-height: 190px; }
+  .project-image { min-height: 260px; }
   .project-content { padding: 1.5rem 1.6rem; }
   .project-content h3 { font-size: 1.05rem; }
   .project-content li { font-size: 0.88rem; }
@@ -153,7 +204,7 @@
 @media (max-width: 480px) {
   .projects-grid { gap: 1.2rem; }
   .project-card { border-radius: 16px; }
-  .project-image { min-height: 170px; }
+  .project-image { min-height: 220px; }
   .project-content { padding: 1.2rem 1.3rem; }
   .project-content h3 { font-size: 1rem; margin-bottom: 0.8rem; }
   .project-content li { font-size: 0.83rem; margin-bottom: 0.45rem; }
@@ -161,7 +212,7 @@
 
 /* Very small phones */
 @media (max-width: 360px) {
-  .project-image { min-height: 150px; }
+  .project-image { min-height: 190px; }
   .project-content { padding: 1rem 1.1rem; }
   .project-content h3 { font-size: 0.95rem; }
   .tech-tag { font-size: 0.7rem; padding: 0.22rem 0.6rem; }

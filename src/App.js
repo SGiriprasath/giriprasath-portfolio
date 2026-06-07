@@ -26,8 +26,8 @@ function App() {
         <Leadership />
         <Certifications />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }
