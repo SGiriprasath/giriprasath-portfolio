@@ -297,18 +297,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* ===========================
-   SCROLLBAR
-   =========================== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary), var(--secondary));
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--secondary), var(--accent));
-}
+
 
 /* ===========================
    LISTS

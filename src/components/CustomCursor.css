@@ -7,17 +7,12 @@
   html, body, a, button, input, textarea, select, .contact-chip, .tech-tag, .resume-btn, .project-action-btn, .nav-link, .nav-logo {
     cursor: none !important;
   }
-  
-  .custom-cursor-dot,
-  .custom-cursor-ring {
-    display: block !important;
-  }
 }
 
-/* Base style for custom cursors (hidden on touchscreens by default) */
+/* Base style for custom cursors (visible on all screens including mobile/touch) */
 .custom-cursor-dot,
 .custom-cursor-ring {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;

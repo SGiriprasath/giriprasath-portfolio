@@ -38,6 +38,37 @@ function CustomCursor() {
 
     window.addEventListener('mousemove', onMouseMove);
     
+    const onTouchStart = (e) => {
+      if (e.touches && e.touches[0]) {
+        if (ringRef.current) {
+          ringRef.current.classList.remove('hidden');
+          dotRef.current.classList.remove('hidden');
+        }
+        mouse.current.x = e.touches[0].clientX;
+        mouse.current.y = e.touches[0].clientY;
+        ringPos.current.x = e.touches[0].clientX;
+        ringPos.current.y = e.touches[0].clientY;
+      }
+    };
+
+    const onTouchMove = (e) => {
+      if (e.touches && e.touches[0]) {
+        mouse.current.x = e.touches[0].clientX;
+        mouse.current.y = e.touches[0].clientY;
+      }
+    };
+
+    const onTouchEnd = () => {
+      if (ringRef.current) {
+        ringRef.current.classList.add('hidden');
+        dotRef.current.classList.add('hidden');
+      }
+    };
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    
     const onMouseLeave = () => {
       if (ringRef.current) {
         ringRef.current.classList.add('hidden');
@@ -114,6 +145,9 @@ function CustomCursor() {
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
       document.removeEventListener('mouseleave', onMouseLeave);
       document.removeEventListener('mouseenter', onMouseEnter);
       cancelAnimationFrame(rafId);
