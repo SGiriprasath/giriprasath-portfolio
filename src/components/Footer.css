@@ -1,87 +1,119 @@
+/* ===========================
+   FOOTER
+   =========================== */
 .footer {
-  background-color: #1a1a2e; /* Dark background matching body */
-  color: #e0e0e0; /* Light text */
+  margin-top: 3rem;
+  padding: 2.5rem 2rem 2rem;
+  border-top: 1px solid rgba(108, 99, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6c63ff, #00d4ff, transparent);
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
-  padding: 2.5rem;
-  margin-top: 4rem;
-  border-top: 2px solid #8c7ae6; /* Purple accent border */
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4); /* Shadow for depth */
-  border-radius: 10px;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 1em;
-  line-height: 1.6;
-}
-
-.footer-social-links {
-  margin-top: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Social row */
+.footer-social {
+  display: flex;
+  gap: 1rem;
   justify-content: center;
-  gap: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.footer-social-links a {
-  color: #e45858; /* Vibrant red for icons */
-  font-size: 1.8em;
-  transition: color 0.3s ease, transform 0.3s ease;
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  color: rgba(200, 200, 240, 0.65);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.footer-social-links a:hover {
-  color: #ffac41; /* Orange on hover */
-  transform: translateY(-5px);
+.footer-social-link:hover {
+  background: rgba(108, 99, 255, 0.12);
+  border-color: rgba(108, 99, 255, 0.5);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.3);
 }
 
-@media (max-width: 1024px) {
-  .footer {
-    padding: 2rem;
-    margin-top: 3.5rem;
-  }
-
-  .footer p {
-    font-size: 0.95em;
-  }
-
-  .footer-social-links {
-    gap: 1.2rem;
-  }
-
-  .footer-social-links a {
-    font-size: 1.6em;
-  }
+.footer-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(160, 160, 210, 0.65);
+  margin: 0;
 }
+
+.heart {
+  color: #ff6b6b;
+  display: inline-block;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%       { transform: scale(1.3); }
+  30%       { transform: scale(1); }
+  45%       { transform: scale(1.2); }
+}
+
+.footer-name {
+  font-weight: 600;
+  background: linear-gradient(90deg, #6c63ff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(120, 120, 160, 0.5);
+  margin: 0;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
 @media (max-width: 768px) {
-  .footer {
-    padding: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .footer p {
-    font-size: 0.9em;
-  }
-
-  .footer-social-links a {
-    font-size: 1.5em;
-  }
+  .footer { padding: 2rem 1.5rem 1.5rem; margin-top: 2rem; }
+  .footer-content { gap: 0.8rem; }
+  .footer-social-link { width: 40px; height: 40px; font-size: 1.05rem; }
+  .footer-tagline { font-size: 0.85rem; }
 }
 
 @media (max-width: 480px) {
-  .footer {
-    padding: 1.2rem; /* Adjusted padding for very small screens */
-    margin-top: 2.5rem;
-  }
+  .footer { padding: 1.8rem 1rem 1.3rem; }
+  .footer-social { gap: 0.75rem; }
+  .footer-social-link { width: 38px; height: 38px; font-size: 1rem; }
+  .footer-tagline { font-size: 0.8rem; }
+  .footer-copy { font-size: 0.75rem; }
+}
 
-  .footer p {
-    font-size: 0.8em;
-  }
-
-  .footer-social-links {
-    gap: 0.8rem; /* Further reduce gap for smaller screens */
-  }
-
-  .footer-social-links a {
-    font-size: 1.3em;
-  }
-} 
+@media (max-width: 360px) {
+  .footer { padding: 1.5rem 0.8rem 1.2rem; }
+  .footer-social-link { width: 36px; height: 36px; }
+}

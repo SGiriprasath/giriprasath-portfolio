@@ -1,120 +1,190 @@
+/* ===========================
+   EDUCATION SECTION
+   =========================== */
 .education-section {
-  padding: 2.5rem;
-  margin: 4rem auto;
-  background-color: #232946; /* Section background */
-  border-radius: 20px;
-  box-shadow: 0 8px 25px #53025a;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem 0;
 }
 
-.education-section:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6);
-}
-
-.education-section h2 {
-  color: #8c7ae6; /* Changed to desired color */
-  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant blue gradient for underline */
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: 2.5rem; /* Match App.css */
-}
-
-.education-item {
-  margin-bottom: 25px;
-  padding-left: 20px;
-  border-left: 5px solid #8c7ae6; /* Purple accent border */
+/* ===========================
+   TIMELINE WRAPPER
+   =========================== */
+.timeline {
   position: relative;
-  transition: border-color 0.3s ease-in-out;
+  padding-left: 2.5rem;
 }
 
-.education-item:hover {
-  border-left-color: #ed72f8; /* Pink on hover */
+/* Vertical connector line */
+.timeline-line {
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.1rem;
+  width: 2px;
+  background: linear-gradient(180deg, #6c63ff 0%, #00d4ff 50%, #ff6b6b 100%);
+  border-radius: 2px;
+  opacity: 0.4;
 }
 
-.education-item h3 {
-  color: #ffac41; /* Orange for institution names */
-  margin-bottom: 5px;
-  font-size: 1.8em; /* Match App.css */
+/* ===========================
+   TIMELINE ITEM
+   =========================== */
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.25s ease;
 }
 
-.education-item p {
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* Glowing dot */
+.timeline-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 1.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  z-index: 1;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 15, 0.9);
+  box-shadow: 0 0 0 4px rgba(10, 10, 15, 0.8);
+}
+
+.timeline-item--primary .timeline-dot {
+  border-color: rgba(108, 99, 255, 0.6);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.4), 0 0 0 4px rgba(10, 10, 15, 0.8);
+}
+.timeline-item--secondary .timeline-dot {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4), 0 0 0 4px rgba(10, 10, 15, 0.8);
+}
+.timeline-item--accent .timeline-dot {
+  border-color: rgba(255, 107, 107, 0.6);
+  box-shadow: 0 0 12px rgba(255, 107, 107, 0.4), 0 0 0 4px rgba(10, 10, 15, 0.8);
+}
+
+/* ===========================
+   TIMELINE CARD
+   =========================== */
+.timeline-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 1.5rem 1.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item--primary .timeline-card { border-left: 3px solid rgba(108, 99, 255, 0.5); }
+.timeline-item--secondary .timeline-card { border-left: 3px solid rgba(0, 212, 255, 0.5); }
+.timeline-item--accent .timeline-card { border-left: 3px solid rgba(255, 107, 107, 0.5); }
+
+.timeline-item--primary:hover .timeline-card {
+  background: rgba(108, 99, 255, 0.05);
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.15);
+}
+.timeline-item--secondary:hover .timeline-card {
+  background: rgba(0, 212, 255, 0.04);
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.12);
+}
+.timeline-item--accent:hover .timeline-card {
+  background: rgba(255, 107, 107, 0.04);
+  border-color: rgba(255, 107, 107, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.12);
+}
+
+.timeline-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.timeline-degree {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(240, 240, 255, 0.95);
+  margin: 0 0 0.25rem 0;
+}
+
+.timeline-institution {
+  font-size: 0.9rem;
+  color: rgba(160, 160, 210, 0.8);
   margin: 0;
-  color: #c0c0c0; /* Lighter grey for text */
-  font-size: 1.1em; /* Match App.css */
+  line-height: 1.4;
 }
 
-.education-year {
-  font-style: normal;
-  color: #a0a0a0; /* Subtle grey for years */
-  font-size: 1em;
-  font-weight: 300;
-  margin-top: 5px;
+.timeline-year {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(160, 160, 200, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
+.grade-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+/* Tablet */
 @media (max-width: 1024px) {
-  .education-section {
-    padding: 2.2rem 2rem;
-    margin: 3.5rem auto;
-  }
-
-  .education-section h2 {
-    font-size: 2.3rem;
-  }
-
-  .education-item h3 {
-    font-size: 1.7em;
-  }
-
-  .education-item p {
-    font-size: 1.05em;
-  }
+  .timeline { padding-left: 2.2rem; }
 }
 
+/* Mobile landscape */
 @media (max-width: 768px) {
-  .education-section {
-    padding: 2rem 1.5rem;
-    margin: 3rem auto;
-  }
-
-  .education-section h2 {
-    font-size: 2rem;
-  }
-
-  .education-item {
-    padding-left: 18px; /* Adjusted padding for better alignment */
-  }
-
-  .education-item h3 {
-    font-size: 1.6em;
-  }
-
-  .education-item p {
-    font-size: 1em;
-  }
+  .education-section { padding: 2rem 0; }
+  .timeline { padding-left: 2rem; }
+  .timeline-dot { left: -2rem; width: 2rem; height: 2rem; font-size: 0.9rem; }
+  .timeline-card { padding: 1.3rem 1.5rem; }
+  .timeline-degree { font-size: 1rem; }
+  .timeline-institution { font-size: 0.85rem; }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
-  .education-section {
-    padding: 1.5rem 1rem;
-    margin: 2.5rem auto;
-  }
+  .timeline { padding-left: 1.8rem; }
+  .timeline-dot { left: -1.8rem; width: 1.75rem; height: 1.75rem; font-size: 0.8rem; }
+  .timeline-card { padding: 1.1rem 1.2rem; border-radius: 14px; }
+  .timeline-card-top { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+  .timeline-year { align-self: flex-start; }
+  .timeline-degree { font-size: 0.95rem; }
+}
 
-  .education-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .education-item {
-    margin-bottom: 20px;
-    padding-left: 15px;
-  }
-
-  .education-item h3 {
-    font-size: 1.4em;
-  }
-
-  .education-item p {
-    font-size: 0.9em;
-  }
-} 
+/* Very small phones */
+@media (max-width: 360px) {
+  .timeline { padding-left: 1.5rem; }
+  .timeline-dot { left: -1.5rem; width: 1.5rem; height: 1.5rem; font-size: 0.7rem; }
+  .timeline-card { padding: 0.9rem 1rem; }
+  .grade-badge { font-size: 0.78rem; }
+}

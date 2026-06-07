@@ -1,137 +1,161 @@
+/* ===========================
+   INTERNSHIP SECTION
+   =========================== */
 .internship-section {
-  padding: 2.5rem;
-  margin: 4rem auto;
-  background-color: #232946; /* Section background */
+  padding: 3rem 0;
+}
+
+.internship-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  border-left: 3px solid rgba(108, 99, 255, 0.6);
   border-radius: 20px;
-  box-shadow: 0 8px 25px #53025a;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 2.2rem;
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
 }
 
-.internship-section:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(2, 93, 121, 0.6);
+.internship-card:hover {
+  background: rgba(108, 99, 255, 0.05);
+  border-color: rgba(108, 99, 255, 0.35);
+  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.15);
 }
 
-.internship-section h2 {
-  color: #8c7ae6; /* Changed to desired color */
-  border-bottom: 4px solid linear-gradient(135deg, #8c7ae6 0%, #6a5acd 100%); /* Vibrant gradient for underline */
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: 2.5rem; /* Match App.css */
+/* Card header */
+.internship-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
-.internship-item {
-  margin-bottom: 25px;
-  padding-left: 0;
+.company-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.company-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.company-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(240, 240, 255, 0.95);
+  margin: 0 0 0.4rem 0;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.28);
+  border-radius: 50px;
+  color: #7eeeff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.role-badge i { font-size: 0.75em; }
+
+.internship-period {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(160, 160, 200, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* Achievements */
+.internship-achievements {
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.internship-achievements li {
   position: relative;
+  padding-left: 1.4rem;
+  color: rgba(180, 180, 220, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
 }
 
-.internship-item h3 {
-  color: #ffac41; /* Orange for company names */
-  margin-bottom: 5px;
-  font-size: 1.8em; /* Match App.css */
+.internship-achievements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #00d4ff;
+  font-size: 0.75em;
+  top: 0.2em;
 }
 
-.internship-item p.internship-role {
-  font-style: normal;
-  color: #007bff; /* Changed to blue for role */
-  margin-bottom: 15px;
-  font-size: 1.1em;
+/* Tech tags */
+.internship-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.internship-tech-tag {
+  padding: 0.3rem 0.8rem;
+  background: rgba(108, 99, 255, 0.12);
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  border-radius: 50px;
+  color: #b0abff;
+  font-size: 0.78rem;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
 }
 
-.internship-item ul {
-  list-style-type: none; /* Ensure no default bullet points */
-  margin-left: 0;
-  color: #c0c0c0; /* Lighter grey for text */
+.internship-tech-tag:hover {
+  background: rgba(108, 99, 255, 0.22);
+  border-color: #6c63ff;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.35);
 }
 
-.internship-item ul li {
-  list-style-type: none !important; /* Ensure no default bullet points */
-  margin-bottom: 10px;
-  padding-left: 25px;
-  position: relative;
-}
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
-.internship-item ul li::before {
-  content: '\2022'; /* Custom bullet point */
-  color: #ffac41; /* Orange for bullet points */
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-  font-size: 1.2em;
-}
-
+/* Tablet */
 @media (max-width: 1024px) {
-  .internship-section {
-    padding: 2.2rem 2rem;
-    margin: 3.5rem auto;
-  }
-
-  .internship-section h2 {
-    font-size: 2.3rem;
-  }
-
-  .internship-item h3 {
-    font-size: 1.7em;
-  }
-
-  .internship-item p.internship-role {
-    font-size: 1.05em;
-  }
+  .internship-card { padding: 1.8rem 2rem; }
 }
 
+/* Mobile landscape */
 @media (max-width: 768px) {
-  .internship-section {
-    padding: 2rem 1.5rem;
-    margin: 3rem auto;
-  }
-
-  .internship-section h2 {
-    font-size: 2rem;
-  }
-
-  .internship-item h3 {
-    font-size: 1.6em;
-  }
-
-  .internship-item p.internship-role {
-    font-size: 1em;
-  }
-
-  .internship-item ul li {
-    padding-left: 20px;
-    margin-bottom: 8px; /* Slightly reduce margin for mobile list items */
-  }
+  .internship-section { padding: 2rem 0; }
+  .internship-card { padding: 1.5rem 1.6rem; }
+  .company-name { font-size: 1.1rem; }
+  .internship-achievements li { font-size: 0.9rem; }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
-  .internship-section {
-    padding: 1.5rem 1rem;
-    margin: 2.5rem auto;
-  }
+  .internship-card { padding: 1.3rem 1.3rem; border-radius: 16px; }
+  .internship-card-header { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+  .company-icon { font-size: 1.8rem; }
+  .company-name { font-size: 1rem; }
+  .internship-achievements li { font-size: 0.85rem; line-height: 1.6; }
+  .internship-tech-tag { font-size: 0.73rem; padding: 0.25rem 0.7rem; }
+}
 
-  .internship-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .internship-item {
-    margin-bottom: 20px;
-  }
-
-  .internship-item h3 {
-    font-size: 1.4em;
-  }
-
-  .internship-item p.internship-role {
-    font-size: 0.9em;
-  }
-
-  .internship-item ul li {
-    padding-left: 15px;
-    font-size: 0.9em;
-    margin-bottom: 6px; /* Further reduce margin for smaller screens */
-  }
-} 
+/* Very small phones */
+@media (max-width: 360px) {
+  .internship-card { padding: 1.1rem 1.1rem; }
+  .company-info { gap: 0.7rem; }
+}

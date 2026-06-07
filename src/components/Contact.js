@@ -96,11 +96,15 @@ function Contact() {
     <motion.section
       id="contact"
       className="contact-section"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 1.2 }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <h2>Contact Me</h2>
+      <div className="section-header">
+        <h2 className="section-title">Contact Me</h2>
+        <p className="section-subtitle">Let's get in touch</p>
+      </div>
       <div className="contact-container">
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">

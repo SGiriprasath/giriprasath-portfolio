@@ -1,207 +1,218 @@
+/* ===========================
+   NAVBAR
+   =========================== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Increased z-index to be above Three.js scene */
-  background: rgba(15, 12, 41, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(108, 99, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(108, 99, 255, 0.1);
 }
 
 .nav-content {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.85rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Logo */
 .nav-logo {
-  font-size: 1.8em;
-  font-weight: 700;
-  color: #ffac41;
-  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
-  padding: 0.5rem 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #6c63ff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 0.45rem 1rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  background-color: rgba(108, 99, 255, 0.08);
+  box-shadow: 0 0 18px rgba(108, 99, 255, 0.15), inset 0 0 12px rgba(108, 99, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* Override background shorthand conflict */
+  background: rgba(108, 99, 255, 0.08);
 }
 
+.nav-logo span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #6c63ff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-logo:hover {
+  border-color: rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 28px rgba(108, 99, 255, 0.3), inset 0 0 16px rgba(108, 99, 255, 0.08);
+  transform: scale(1.03);
+}
+
+/* Nav Links */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.3rem;
   align-items: center;
 }
 
 .nav-link {
   background: none;
   border: none;
-  color: #8c7ae6;
-  font-size: 1.1em;
+  color: rgba(240, 240, 255, 0.65);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   position: relative;
-  overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
-.nav-link::before {
+.nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
   height: 2px;
-  background: linear-gradient(135deg, #e45858 0%, #ffac41 100%);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, #6c63ff, #00d4ff);
+  border-radius: 2px;
+  transition: transform 0.25s ease;
 }
 
 .nav-link:hover {
-  color: #ffac41;
-  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  background: rgba(108, 99, 255, 0.1);
 }
 
-.nav-link:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .nav-link.active {
-  color: #ffac41;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  background: rgba(108, 99, 255, 0.12);
 }
 
-.nav-link.active::before {
-  transform: scaleX(1);
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+  background: linear-gradient(90deg, #6c63ff, #00d4ff);
 }
 
-/* Hamburger Menu Styles */
+/* ===========================
+   HAMBURGER MENU
+   =========================== */
 .menu-toggle {
-  display: none; /* Hidden by default for desktop */
+  display: none;
   cursor: pointer;
-  width: 30px;
-  height: 25px;
+  width: 28px;
+  height: 22px;
   position: relative;
-  z-index: 1001; /* Ensure it's above other content */
+  z-index: 1001;
 }
 
-.hamburger, .hamburger::before, .hamburger::after {
+.hamburger,
+.hamburger::before,
+.hamburger::after {
   content: '';
   display: block;
   width: 100%;
-  height: 3px;
-  background-color: #ffac41; /* Orange color for hamburger lines */
-  border-radius: 3px;
+  height: 2px;
+  background: linear-gradient(90deg, #6c63ff, #00d4ff);
+  border-radius: 2px;
   position: absolute;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hamburger {
-  top: 50%;
-  transform: translateY(-50%);
-}
+.hamburger { top: 50%; transform: translateY(-50%); }
+.hamburger::before { top: -9px; }
+.hamburger::after  { top: 9px; }
 
-.hamburger::before {
-  top: -10px;
-}
+.hamburger.open { transform: translateY(-50%) rotate(45deg); }
+.hamburger.open::before { top: 0; opacity: 0; }
+.hamburger.open::after  { top: 0; transform: rotate(90deg); }
 
-.hamburger::after {
-  top: 10px;
-}
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
-.hamburger.open {
-  transform: rotate(45deg);
-}
-
-.hamburger.open::before {
-  top: 0;
-  opacity: 0;
-}
-
-.hamburger.open::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-
-/* Responsive adjustments */
+/* Tablet */
 @media (max-width: 1024px) {
-  .nav-content {
-    padding: 1rem 1.5rem;
-  }
+  .nav-content { padding: 0.8rem 1.8rem; }
+  .nav-link { font-size: 0.85rem; padding: 0.45rem 0.7rem; }
+  .nav-links { gap: 0.2rem; }
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block; /* Show hamburger on mobile */
-  }
+/* Hide links, show hamburger */
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
 
   .nav-links {
     position: absolute;
-    top: 100%; /* Below navbar height */
+    top: 100%;
     left: 0;
     width: 100%;
     flex-direction: column;
-    background: rgba(15, 12, 41, 0.95); /* Darker background for mobile menu */
-    backdrop-filter: blur(15px);
-    gap: 0.8rem; /* Adjusted gap */
-    max-height: 0; /* Hidden by default */
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    align-items: center; /* Center items in column layout */
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    gap: 0.3rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    border-top: 1px solid rgba(108, 99, 255, 0.15);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+    z-index: 999;
   }
 
   .nav-links.open {
-    max-height: 600px; /* Increased greatly to ensure all content fits */
-    padding: 2rem 1.5rem; /* Consistent horizontal padding for the entire menu */
-    justify-content: center; /* Center items vertically */
+    max-height: 520px;
+    padding: 1.2rem 1.5rem 1.8rem;
   }
 
   .nav-link {
-    font-size: 1em;
-    padding: 0.8rem 0; /* No horizontal padding here, let parent handle it */
-    width: 100%; /* Make links take full available width within padded container */
-    text-align: center; /* Ensure text is centered within the button */
-    margin: 0 auto; /* Center individual links */
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .nav-content {
-    padding: 0.8rem 1rem;
-    flex-wrap: wrap; /* Allow wrapping in nav-content */
-    justify-content: space-between; 
-  }
-
-  .nav-logo {
-    font-size: 1.4em;
-    margin-bottom: 0;
-  }
+  .nav-link::after { bottom: 6px; }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
-  .nav-links.open {
-    padding: 1.5rem 1rem; /* Adjust padding for very small screens */
-  }
+  .nav-content { padding: 0.65rem 1rem; }
+  .nav-logo { font-size: 1.25rem; padding: 0.4rem 0.85rem; }
+  .nav-links.open { padding: 1rem 1.2rem 1.5rem; }
+  .nav-link { font-size: 0.95rem; padding: 0.8rem; }
+}
 
-  .nav-link {
-    padding: 0.7rem 0; /* No horizontal padding here */
-    width: 100%; /* Make links take full available width within padded container */
-  }
+/* Very small phones */
+@media (max-width: 360px) {
+  .nav-content { padding: 0.6rem 0.8rem; }
+  .nav-logo { font-size: 1.1rem; padding: 0.35rem 0.75rem; }
+}
 
-  .nav-content {
-    padding: 0.6rem 0.5rem; /* Further reduce padding for smaller screens */
-  }
-
-  .nav-logo {
-    font-size: 1.2em;
-  }
-} 

@@ -1,71 +1,92 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Education.css'; // We'll create this file next
+import './Education.css';
+
+const educationData = [
+  {
+    degree: 'BE Computer Science',
+    institution: 'Velalar College of Engineering and Technology',
+    grade: 'CGPA — 7.89',
+    period: '2021 – 2025',
+    icon: '🎓',
+    color: 'primary',
+  },
+  {
+    degree: 'HSC (Higher Secondary)',
+    institution: 'Higher Secondary School',
+    grade: '87%',
+    period: '2020 – 2021',
+    icon: '📚',
+    color: 'secondary',
+  },
+  {
+    degree: 'SSLC (Secondary)',
+    institution: 'Secondary School',
+    grade: '83%',
+    period: '2018 – 2019',
+    icon: '🏫',
+    color: 'accent',
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', stiffness: 80, damping: 18 },
+  },
+};
 
 function Education() {
-  const educationItemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    },
-    hover: { scale: 1.02, boxShadow: "0 12px 35px rgba(2, 93, 121, 0.6)" },
-    tap: { scale: 0.98 }
-  };
-
   return (
     <motion.section
       id="education"
       className="education-section"
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
     >
-      <h2>EDUCATION</h2>
-      <motion.div 
-        className="education-item"
-        variants={educationItemVariants}
-        initial="hidden"
-        animate="visible"
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ delay: 0 * 0.1 }}
-      >
-        <h3>Velalar College of Engineering and Technology</h3>
-        <p>BE Computer Science (CGPA - 7.89)</p>
-        <p className="education-year">2021 - 2025</p>
-      </motion.div>
-      <motion.div 
-        className="education-item"
-        variants={educationItemVariants}
-        initial="hidden"
-        animate="visible"
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ delay: 1 * 0.1 }}
-      >
-        <h3>HSC - 87%</h3>
-        <p className="education-year">2020 - 2021</p>
-      </motion.div>
-      <motion.div 
-        className="education-item"
-        variants={educationItemVariants}
-        initial="hidden"
-        animate="visible"
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ delay: 2 * 0.1 }}
-      >
-        <h3>SSLC - 83%</h3>
-        <p className="education-year">2018 - 2019</p>
-      </motion.div>
+      <div className="section-header">
+        <h2 className="section-title">Education</h2>
+        <p className="section-subtitle">My academic journey</p>
+      </div>
+
+      <div className="timeline">
+        {educationData.map((edu, index) => (
+          <motion.div
+            key={index}
+            className={`timeline-item timeline-item--${edu.color}`}
+            variants={itemVariants}
+            whileHover={{ x: 6, transition: { duration: 0.2 } }}
+          >
+            <div className="timeline-dot">
+              <span>{edu.icon}</span>
+            </div>
+            <div className="timeline-card">
+              <div className="timeline-card-top">
+                <div>
+                  <h3 className="timeline-degree">{edu.degree}</h3>
+                  <p className="timeline-institution">{edu.institution}</p>
+                </div>
+                <span className="timeline-year">{edu.period}</span>
+              </div>
+              <div className="timeline-grade">
+                <span className="grade-badge">🏆 {edu.grade}</span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+        <div className="timeline-line" />
+      </div>
     </motion.section>
   );
 }
 
-export default Education; 
+export default Education;

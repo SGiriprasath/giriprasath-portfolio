@@ -2,47 +2,69 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Leadership.css';
 
-function Leadership() {
-  const leadershipItemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    },
-    hover: { scale: 1.02, boxShadow: "0 12px 35px rgba(2, 93, 121, 0.6)" },
-    tap: { scale: 0.98 }
-  };
+const leadershipItems = [
+  {
+    role: 'Sports Captain',
+    org: 'Velalar College of Engineering and Technology',
+    icon: '🏆',
+    description: 'Led and organized sports activities, represented the college in inter-collegiate events.',
+  },
+  {
+    role: 'Senior Designer',
+    org: 'Tech Crew (Department Club)',
+    icon: '🎨',
+    description: 'Created visual designs and branding materials for department events and technical fests.',
+  },
+];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.18 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 80, damping: 16 },
+  },
+};
+
+function Leadership() {
   return (
     <motion.section
       id="leadership"
       className="leadership-section"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 1.0 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
     >
-      <h2>LEADERSHIP</h2>
-      <motion.div 
-        className="leadership-item"
-        variants={leadershipItemVariants}
-        initial="hidden"
-        animate="visible"
-        whileHover="hover"
-        whileTap="tap"
-        transition={{ delay: 0 * 0.1 }}
-      >
-        <ul>
-          <li>Sports Captain at Velalar College of Engineering and Technology</li>
-          <li>Senior Designer at Tech crew(Department club)</li>
-        </ul>
-      </motion.div>
+      <div className="section-header">
+        <h2 className="section-title">Leadership</h2>
+        <p className="section-subtitle">Roles &amp; responsibilities</p>
+      </div>
+
+      <div className="leadership-grid">
+        {leadershipItems.map((item, index) => (
+          <motion.div
+            key={index}
+            className="leadership-card"
+            variants={itemVariants}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          >
+            <div className="leadership-icon">{item.icon}</div>
+            <div className="leadership-content">
+              <h3 className="leadership-role">{item.role}</h3>
+              <p className="leadership-org">{item.org}</p>
+              <p className="leadership-desc">{item.description}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </motion.section>
   );
 }
 
-export default Leadership; 
+export default Leadership;

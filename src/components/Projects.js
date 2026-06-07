@@ -2,76 +2,86 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
 
-function Projects() {
-  const projects = [
-    {
-      title: "Marathon Image Classification and Retrieval System",
-      description: [
-        "Developed an OCR-based image retrieval system using PaddleOCR and AWS S3, enabling efficient classification and retrieval of marathon event images.",
-        "Designed a web-based interface allowing users to search images using extracted alphanumeric data like bib numbers and text.",
-        "Implemented scalable pipelines for image storage and metadata extraction, improving retrieval accuracy and processing efficiency."
-      ],
-      image: "/images/marathon-project.png",
-      technologies: ["PaddleOCR", "AWS S3", "Python", "OpenCV"],
-      link: "#"
-    },
-    {
-      title: "Image Recognition and Face Recognition System",
-      description: [
-        "Developed and deployed image Recognition and face recognition systems using advanced machine learning techniques.",
-        "Designed scalable pipelines for real-time processing, ensuring high accuracy and efficiency in recognition tasks.",
-        "Integrated models into applications for seamless user interaction and automated decision-making."
-      ],
-      image: "/images/face-recognition.png",
-      technologies: ["OpenCV", "Python", "Face Recognition"],
-      link: "#"
-    }
-  ];
+const projects = [
+  {
+    title: 'Marathon Image Classification and Retrieval System',
+    description: [
+      'Developed an OCR-based image retrieval system using PaddleOCR and AWS S3, enabling efficient classification and retrieval of marathon event images.',
+      'Designed a web-based interface allowing users to search images using extracted alphanumeric data like bib numbers and text.',
+      'Implemented scalable pipelines for image storage and metadata extraction, improving retrieval accuracy and processing efficiency.',
+    ],
+    image: '/images/marathon-project.png',
+    technologies: ['PaddleOCR', 'AWS S3', 'Python', 'OpenCV'],
+    link: '#',
+  },
+  {
+    title: 'Image Recognition and Face Recognition System',
+    description: [
+      'Developed and deployed image recognition and face recognition systems using advanced machine learning techniques.',
+      'Designed scalable pipelines for real-time processing, ensuring high accuracy and efficiency in recognition tasks.',
+      'Integrated models into applications for seamless user interaction and automated decision-making.',
+    ],
+    image: '/images/face-recognition.png',
+    technologies: ['OpenCV', 'Python', 'Face Recognition'],
+    link: '#',
+  },
+];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 70, damping: 18 },
+  },
+};
+
+function Projects() {
   return (
     <motion.section
       id="projects"
       className="projects-section"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.8 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
     >
-      <h2>PROJECTS</h2>
+      <div className="section-header">
+        <h2 className="section-title">Projects</h2>
+        <p className="section-subtitle">Things I've built</p>
+      </div>
+
       <div className="projects-grid">
         {projects.map((project, index) => (
           <motion.div
             key={index}
             className="project-card"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            whileHover={{ scale: 1.03, boxShadow: "0 18px 45px rgba(2, 93, 121, 0.7)" }}
+            variants={cardVariants}
           >
-            <motion.div 
+            <motion.div
               className="project-image"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
             >
               <img src={project.image} alt={project.title} />
               <div className="project-overlay">
-                <motion.a
+                <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-link"
-                  whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(237, 114, 248, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   View Project
-                </motion.a>
+                </a>
               </div>
             </motion.div>
+
             <div className="project-content">
-              <motion.h3
-                whileHover={{ scale: 1.02 }}
-              >
-                {project.title}
-              </motion.h3>
+              <h3>{project.title}</h3>
               <ul>
                 {project.description.map((item, i) => (
                   <li key={i}>{item}</li>
@@ -82,8 +92,7 @@ function Projects() {
                   <motion.span
                     key={i}
                     className="tech-tag"
-                    whileHover={{ translateY: -3, boxShadow: "0 6px 15px rgba(2, 93, 121, 0.4)" }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ y: -3, transition: { duration: 0.15 } }}
                   >
                     {tech}
                   </motion.span>
@@ -97,4 +106,4 @@ function Projects() {
   );
 }
 
-export default Projects; 
+export default Projects;

@@ -6,107 +6,148 @@ function ThreeScene() {
   const mouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    console.log('ThreeScene useEffect called.');
-    if (!mountRef.current) {
-      console.log('mountRef.current is null.');
-      return;
-    }
+    if (!mountRef.current) return;
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Enable alpha for transparency
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
-    console.log('Renderer DOM element appended.', renderer.domElement);
 
-    // Lighting
-    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-    pointLight.position.set(0, 0, 10);
-    scene.add(pointLight);
+    camera.position.z = 6;
 
-    // Objects (Spheres)
-    const spheres = [];
-    const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x8c7ae6, transparent: true, opacity: 0.6 }); // Purple translucent
+    // =====================
+    // Particle field (1200 particles)
+    // =====================
+    const PARTICLE_COUNT = 1200;
+    const positions = new Float32Array(PARTICLE_COUNT * 3);
+    const colors = new Float32Array(PARTICLE_COUNT * 3);
+    const sizes = new Float32Array(PARTICLE_COUNT);
+    const velocities = [];
 
-    for (let i = 0; i < 10; i++) {
-      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-      sphere.position.set(
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20
-      );
-      sphere.userData.originalPosition = sphere.position.clone();
-      scene.add(sphere);
-      spheres.push(sphere);
-    }
-    console.log('Spheres added to scene.', spheres);
+    const colorPrimary = new THREE.Color('#6c63ff');   // violet
+    const colorSecondary = new THREE.Color('#00d4ff'); // cyan
+    const colorAccent = new THREE.Color('#ff6b6b');    // coral (rare)
 
-    camera.position.z = 5;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const i3 = i * 3;
 
-    // Mouse movement interaction
-    const handleMouseMove = (event) => {
-      // Convert mouse position to normalized device coordinates (-1 to +1)
-      mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-    window.addEventListener('mousemove', handleMouseMove);
+      // Spread across a wide field
+      positions[i3]     = (Math.random() - 0.5) * 28;
+      positions[i3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i3 + 2] = (Math.random() - 0.5) * 14;
 
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      const time = performance.now() * 0.0005;
-
-      spheres.forEach((sphere, index) => {
-        // Keep the original floating animation
-        sphere.position.y = sphere.userData.originalPosition.y + Math.sin(time + index) * 0.5;
-        sphere.position.x = sphere.userData.originalPosition.x + Math.cos(time + index) * 0.5;
-        
-        // Add mouse interaction
-        const mouseInfluence = 0.1; // Adjust this value to control the strength of mouse influence
-        sphere.position.x += (mouse.current.x * 2 - sphere.position.x) * mouseInfluence;
-        sphere.position.y += (mouse.current.y * 2 - sphere.position.y) * mouseInfluence;
-        
-        // Keep the rotation animation
-        sphere.rotation.x += 0.005;
-        sphere.rotation.y += 0.005;
+      // Tiny random drift velocity
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.003,
+        y: (Math.random() - 0.5) * 0.003,
+        z: 0,
       });
+
+      // Color: 55% cyan, 38% violet, 7% coral
+      const rnd = Math.random();
+      const color =
+        rnd < 0.55 ? colorSecondary :
+        rnd < 0.93 ? colorPrimary :
+                     colorAccent;
+      colors[i3]     = color.r;
+      colors[i3 + 1] = color.g;
+      colors[i3 + 2] = color.b;
+
+      sizes[i] = Math.random() * 1.8 + 0.5;
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+    const material = new THREE.PointsMaterial({
+      size: 0.06,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.55,
+      sizeAttenuation: true,
+      depthWrite: false,
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    // =====================
+    // Mouse tracking
+    // =====================
+    const handleMouseMove = (e) => {
+      mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    };
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    // =====================
+    // Animation loop
+    // =====================
+    let animId;
+    const posArr = geometry.attributes.position.array;
+
+    const animate = () => {
+      animId = requestAnimationFrame(animate);
+
+      // Slowly drift particles
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const i3 = i * 3;
+        posArr[i3]     += velocities[i].x;
+        posArr[i3 + 1] += velocities[i].y;
+
+        // Wrap particles back when they drift too far
+        if (posArr[i3] >  14) posArr[i3] = -14;
+        if (posArr[i3] < -14) posArr[i3] =  14;
+        if (posArr[i3 + 1] >  10) posArr[i3 + 1] = -10;
+        if (posArr[i3 + 1] < -10) posArr[i3 + 1] =  10;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      // Subtle parallax on mouse move
+      particles.rotation.x += (mouse.current.y * 0.04 - particles.rotation.x) * 0.025;
+      particles.rotation.y += (mouse.current.x * 0.04 - particles.rotation.y) * 0.025;
+
+      // Very slow global rotation
+      particles.rotation.z += 0.00015;
 
       renderer.render(scene, camera);
     };
 
     animate();
-    console.log('Animation loop started.');
 
-    // Handle window resize
+    // =====================
+    // Resize
+    // =====================
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      console.log('Window resized.');
     };
-
     window.addEventListener('resize', handleResize);
 
+    // =====================
     // Cleanup
+    // =====================
     return () => {
+      cancelAnimationFrame(animId);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      geometry.dispose();
+      material.dispose();
+      renderer.dispose();
       if (mountRef.current && renderer.domElement) {
         mountRef.current.removeChild(renderer.domElement);
-        console.log('Renderer DOM element removed.');
       }
     };
   }, []);
 
-  return (
-    <div className="three-scene-background" ref={mountRef}>
-      {/* Three.js scene will be rendered here */}
-    </div>
-  );
+  return <div className="three-scene-background" ref={mountRef} />;
 }
 
-export default ThreeScene; 
+export default ThreeScene;
