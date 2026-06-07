@@ -6,13 +6,24 @@ const internshipData = [
   {
     company: 'NediVeil Technologies',
     role: 'Python Developer',
-    period: '2024',
+    period: 'Jan 2025 – Apr 2025',
     icon: '🏢',
     achievements: [
       'Developed and deployed an AI-powered chatbot, integrating APIs to facilitate seamless and dynamic user interactions.',
       'Implemented marathon image classification using PaddleOCR, OpenCV, and AWS, enabling automated text and bib number recognition for efficient data retrieval and event analysis.',
     ],
     techStack: ['Python', 'PaddleOCR', 'OpenCV', 'AWS', 'APIs'],
+  },
+  {
+    company: 'NediVeil Technologies',
+    role: 'Web Developer',
+    period: 'Sep 2024 – Dec 2024',
+    icon: '🏢',
+    achievements: [
+      'Built and optimized responsive front-end user interfaces using HTML, CSS, and JavaScript, improving layout responsiveness and client-side load time.',
+      'Collaborated on website redesigns, translating design mockups into interactive components and ensuring cross-browser compatibility.',
+    ],
+    techStack: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Bootstrap'],
   },
 ];
 

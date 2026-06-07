@@ -13,6 +13,11 @@
   padding: 2rem 2.2rem;
   box-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.internship-card:last-child {
+  margin-bottom: 0;
 }
 
 .internship-card:hover {

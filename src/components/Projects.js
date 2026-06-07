@@ -68,16 +68,6 @@ function Projects() {
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
             >
               <img src={project.image} alt={project.title} />
-              <div className="project-overlay">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  View Project
-                </a>
-              </div>
             </motion.div>
 
             <div className="project-content">

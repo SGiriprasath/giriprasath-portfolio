@@ -5,8 +5,7 @@ import './Header.css';
 const ROLES = [
   'Python Developer',
   'AI Enthusiast',
-  'Cloud Engineer',
-  'Problem Solver',
+
 ];
 
 function Header() {
@@ -99,50 +98,31 @@ function Header() {
             <span>giriprasathsks@gmail.com</span>
           </motion.a>
           <motion.a
-            href="tel:+917904602922"
+            href="https://linkedin.com/in/giriprasath-s/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="contact-chip"
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.96 }}
           >
-            <i className="fas fa-phone" />
-            <span>+91 7904602922</span>
+            <i className="fab fa-linkedin" />
+            <span>LinkedIn</span>
           </motion.a>
-          <motion.span
+          <motion.a
+            href="https://github.com/SGiriprasath"
+            target="_blank"
+            rel="noopener noreferrer"
             className="contact-chip"
             whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.96 }}
           >
-            <i className="fas fa-map-marker-alt" />
-            <span>Chennai, Tamil Nadu</span>
-          </motion.span>
+            <i className="fab fa-github" />
+            <span>GitHub</span>
+          </motion.a>
         </motion.div>
 
         {/* Social + Resume row */}
         <motion.div className="hero-actions" variants={itemVariants}>
-          <div className="social-icons-row">
-            <motion.a
-              href="https://linkedin.com/in/giriprasath-s/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon-btn"
-              whileHover={{ scale: 1.15, y: -4 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="LinkedIn"
-            >
-              <i className="fab fa-linkedin" />
-            </motion.a>
-            <motion.a
-              href="https://github.com/SGiriprasath"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon-btn"
-              whileHover={{ scale: 1.15, y: -4 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="GitHub"
-            >
-              <i className="fab fa-github" />
-            </motion.a>
-          </div>
-
           <motion.button
             className="resume-btn"
             whileHover={{ scale: 1.04, y: -3 }}
@@ -156,16 +136,6 @@ function Header() {
         </motion.div>
       </div>
 
-      {/* Scroll down indicator */}
-      <motion.div
-        className="scroll-indicator"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-      >
-        <span>Scroll</span>
-        <div className="scroll-arrow" />
-      </motion.div>
     </motion.header>
   );
 }

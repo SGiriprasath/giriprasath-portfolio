@@ -53,41 +53,7 @@
   transform: scale(1.07);
 }
 
-/* Overlay */
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.7), rgba(0, 212, 255, 0.5));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-link {
-  padding: 0.8rem 1.8rem;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #1a1a2e;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.project-link:hover {
-  background: #ffffff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
-  color: #1a1a2e;
-}
 
 /* ===========================
    PROJECT CONTENT
@@ -191,7 +157,6 @@
   .project-content { padding: 1.2rem 1.3rem; }
   .project-content h3 { font-size: 1rem; margin-bottom: 0.8rem; }
   .project-content li { font-size: 0.83rem; margin-bottom: 0.45rem; }
-  .project-link { padding: 0.65rem 1.4rem; font-size: 0.88rem; }
 }
 
 /* Very small phones */

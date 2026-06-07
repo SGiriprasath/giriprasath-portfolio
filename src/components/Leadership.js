@@ -7,13 +7,13 @@ const leadershipItems = [
     role: 'Sports Captain',
     org: 'Velalar College of Engineering and Technology',
     icon: '🏆',
-    description: 'Led and organized sports activities, represented the college in inter-collegiate events.',
+    description: 'Led and organized sports activities, represented the college in intercollegiate events.',
   },
   {
     role: 'Senior Designer',
     org: 'Tech Crew (Department Club)',
     icon: '🎨',
-    description: 'Created visual designs and branding materials for department events and technical fests.',
+    description: 'Created visual designs and branding materials for department events and technical festivals.',
   },
 ];
 
@@ -43,7 +43,7 @@ function Leadership() {
     >
       <div className="section-header">
         <h2 className="section-title">Leadership</h2>
-        <p className="section-subtitle">Roles &amp; responsibilities</p>
+        <p className="section-subtitle">Roles & Responsibilities</p>
       </div>
 
       <div className="leadership-grid">

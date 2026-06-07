@@ -4,28 +4,40 @@ import './Education.css';
 
 const educationData = [
   {
+    degree: 'MSc Data Science',
+    institution: 'Aston University',
+    grade: 'Pursuing',
+    gradeIcon: '📖',
+    period: '2026 – Present',
+    icon: '🎓',
+    color: 'primary',
+  },
+  {
     degree: 'BE Computer Science',
     institution: 'Velalar College of Engineering and Technology',
     grade: 'CGPA — 7.89',
+    gradeIcon: '🏆',
     period: '2021 – 2025',
     icon: '🎓',
-    color: 'primary',
+    color: 'secondary',
   },
   {
     degree: 'HSC (Higher Secondary)',
     institution: 'Higher Secondary School',
     grade: '87%',
+    gradeIcon: '🏆',
     period: '2020 – 2021',
     icon: '📚',
-    color: 'secondary',
+    color: 'accent',
   },
   {
     degree: 'SSLC (Secondary)',
     institution: 'Secondary School',
     grade: '83%',
+    gradeIcon: '🏆',
     period: '2018 – 2019',
     icon: '🏫',
-    color: 'accent',
+    color: 'primary',
   },
 ];
 
@@ -64,12 +76,15 @@ function Education() {
             key={index}
             className={`timeline-item timeline-item--${edu.color}`}
             variants={itemVariants}
-            whileHover={{ x: 6, transition: { duration: 0.2 } }}
           >
             <div className="timeline-dot">
               <span>{edu.icon}</span>
             </div>
-            <div className="timeline-card">
+            <motion.div
+              className="timeline-card"
+              whileHover={{ x: 6 }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="timeline-card-top">
                 <div>
                   <h3 className="timeline-degree">{edu.degree}</h3>
@@ -78,9 +93,9 @@ function Education() {
                 <span className="timeline-year">{edu.period}</span>
               </div>
               <div className="timeline-grade">
-                <span className="grade-badge">🏆 {edu.grade}</span>
+                <span className="grade-badge">{edu.gradeIcon} {edu.grade}</span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
         <div className="timeline-line" />
