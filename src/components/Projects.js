@@ -4,6 +4,39 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'Marathon Image Classification and Retrieval System',
+    description: [
+      'Developed an OCR-based image retrieval system using PaddleOCR and AWS S3, enabling efficient classification and retrieval of marathon event images.',
+      'Designed a web-based interface allowing users to search images using extracted alphanumeric data like bib numbers and text.',
+      'Implemented scalable pipelines for image storage and metadata extraction, improving retrieval accuracy and processing efficiency.',
+    ],
+    image: '/images/marathon-project.png',
+    technologies: ['PaddleOCR', 'AWS S3', 'Python', 'OpenCV'],
+    link: 'https://github.com/SGiriprasath/Marathon',
+  },
+  {
+    title: 'Image Recognition and Face Recognition System',
+    description: [
+      'Developed and deployed image recognition and face recognition systems using advanced machine learning techniques.',
+      'Designed scalable pipelines for real-time processing, ensuring high accuracy and efficiency in recognition tasks.',
+      'Integrated models into applications for seamless user interaction and automated decision-making.',
+    ],
+    image: '/images/face-recognition.png',
+    technologies: ['OpenCV', 'Python', 'Face Recognition'],
+    link: 'https://github.com/SGiriprasath/Recognition',
+  },
+  {
+    title: 'Sri Velmurugan Website and ERP',
+    description: [
+      'Developed a responsive, modern business website and ERP system using React and EmailJS to showcase services and handle user inquiries.',
+      'Designed and integrated ERP modules for inventory, sales, and finance to streamline business operations and data tracking.',
+      'Leveraged Supabase for secure, scalable database management and authentication, ensuring robust data privacy and operations.'
+    ],
+    image: '/images/velmurugan-project.png',
+    technologies: ['React', 'EmailJS', 'Supabase', 'Cursor', 'Windsurf'],
+    link: 'https://www.srivelmurugan.in/',
+  },
+  {
     title: 'Megaoverseas',
     description: [
       'Built a fast and responsive study abroad consultancy website for MegaOverseas using React and EmailJS.',
@@ -26,17 +59,6 @@ const projects = [
     link: 'https://www.meditechsolution.co.in/',
   },
   {
-    title: 'Sri Velmurugan Website and ERP',
-    description: [
-      'Developed a responsive, modern business website and ERP system using React and EmailJS to showcase services and handle user inquiries.',
-      'Designed and integrated ERP modules for inventory, sales, and finance to streamline business operations and data tracking.',
-      'Leveraged Supabase for secure, scalable database management and authentication, ensuring robust data privacy and operations.'
-    ],
-    image: '/images/velmurugan-project.png',
-    technologies: ['React', 'EmailJS', 'Supabase', 'Cursor', 'Windsurf'],
-    link: 'https://www.srivelmurugan.in/',
-  },
-  {
     title: 'Bharath Engineerings Website',
     description: [
       'Built a high-performance, mobile-first website for Bharath Engineerings using React and EmailJS.',
@@ -46,28 +68,6 @@ const projects = [
     image: '/images/bharath-project.png',
     technologies: ['React', 'EmailJS', 'Cursor', 'Windsurf'],
     link: 'https://www.bharathengineerings.in/',
-  },
-  {
-    title: 'Marathon Image Classification and Retrieval System',
-    description: [
-      'Developed an OCR-based image retrieval system using PaddleOCR and AWS S3, enabling efficient classification and retrieval of marathon event images.',
-      'Designed a web-based interface allowing users to search images using extracted alphanumeric data like bib numbers and text.',
-      'Implemented scalable pipelines for image storage and metadata extraction, improving retrieval accuracy and processing efficiency.',
-    ],
-    image: '/images/marathon-project.png',
-    technologies: ['PaddleOCR', 'AWS S3', 'Python', 'OpenCV'],
-    link: 'https://github.com/SGiriprasath/Marathon',
-  },
-  {
-    title: 'Image Recognition and Face Recognition System',
-    description: [
-      'Developed and deployed image recognition and face recognition systems using advanced machine learning techniques.',
-      'Designed scalable pipelines for real-time processing, ensuring high accuracy and efficiency in recognition tasks.',
-      'Integrated models into applications for seamless user interaction and automated decision-making.',
-    ],
-    image: '/images/face-recognition.png',
-    technologies: ['OpenCV', 'Python', 'Face Recognition'],
-    link: 'https://github.com/SGiriprasath/Recognition',
   },
 ];
 

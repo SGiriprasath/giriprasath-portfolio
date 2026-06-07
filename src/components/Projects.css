@@ -76,9 +76,10 @@
 
 .project-title-row {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1.2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 1.2rem;
 }
 
@@ -89,11 +90,14 @@
   color: rgba(240, 240, 255, 0.95);
   margin: 0;
   line-height: 1.4;
+  flex: 1;
+  min-width: 0;
 }
 
 .project-actions {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .project-action-btn {
@@ -202,6 +206,7 @@
 
 /* Mobile portrait */
 @media (max-width: 480px) {
+  .project-title-row { flex-wrap: wrap; gap: 0.8rem; }
   .projects-grid { gap: 1.2rem; }
   .project-card { border-radius: 16px; }
   .project-image { min-height: 220px; }
