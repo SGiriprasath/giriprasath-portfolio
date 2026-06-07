@@ -43,10 +43,7 @@ function Header() {
       initial="hidden"
       animate="visible"
     >
-      {/* Decorative orbs */}
-      <div className="hero-orb hero-orb-1" />
-      <div className="hero-orb hero-orb-2" />
-      <div className="hero-orb hero-orb-3" />
+
 
       <div className="header-content">
         {/* Greeting */}
