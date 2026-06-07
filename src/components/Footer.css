@@ -66,38 +66,50 @@
   margin: 0;
 }
 
-.heart {
-  color: #ff6b6b;
+.sparkle-icon {
   display: inline-block;
-  animation: heartbeat 1.8s ease-in-out infinite;
+  animation: flicker 2s infinite ease-in-out;
+  margin: 0 2px;
 }
 
-@keyframes heartbeat {
+.coffee-icon {
+  display: inline-block;
+  animation: float 2.5s infinite ease-in-out;
+  margin: 0 2px;
+}
 
-  0%,
-  100% {
-    transform: scale(1);
-  }
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.18) rotate(10deg); }
+}
 
-  15% {
-    transform: scale(1.3);
-  }
-
-  30% {
-    transform: scale(1);
-  }
-
-  45% {
-    transform: scale(1.2);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-2px) rotate(5deg); }
 }
 
 .footer-name {
-  font-weight: 600;
-  background: linear-gradient(90deg, #6c63ff, #00d4ff);
+  font-weight: 700;
+  background: linear-gradient(90deg, #6c63ff, #00d4ff, #ff6b6b, #6c63ff);
+  background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientFlow 6s linear infinite;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footer-name:hover {
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.45);
+  transform: scale(1.05);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .footer-copy {

@@ -48,7 +48,7 @@ function Footer() {
         </div>
 
         <p className="footer-tagline">
-          Built with <span className="heart">♥</span> by <span className="footer-name">Giriprasath S</span>
+          Designed &amp; Coded with <span className="sparkle-icon">⚡</span> and <span className="coffee-icon">☕</span> by <span className="footer-name">Giriprasath S</span>
         </p>
 
         <p className="footer-copy">

@@ -127,7 +127,7 @@ function Header() {
             className="resume-btn"
             whileHover={{ scale: 1.04, y: -3 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => window.open('/giriprasath_resume.pdf', '_blank')}
+            onClick={() => window.open('/resume.html', '_blank')}
           >
             <span>View Resume</span>
             <i className="fas fa-external-link-alt" />

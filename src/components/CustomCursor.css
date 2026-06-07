@@ -1,0 +1,93 @@
+/* ===========================
+   FUTURISTIC MORPHING CURSOR
+   =========================== */
+
+/* Hide default cursor on desktop screens */
+@media (min-width: 1025px) {
+  html, body, a, button, input, textarea, select, .contact-chip, .tech-tag, .resume-btn, .project-action-btn, .nav-link, .nav-logo {
+    cursor: none !important;
+  }
+  
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: block !important;
+  }
+}
+
+/* Base style for custom cursors (hidden on touchscreens by default) */
+.custom-cursor-dot,
+.custom-cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Inner Dot (Instant movement) */
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00d4ff;
+  border-radius: 50%;
+  margin-top: -4px;
+  margin-left: -4px;
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-radius 0.25s ease, opacity 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+/* Morph dot to small crosshair (+) shape on hover */
+.custom-cursor-dot.hovered {
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  margin-left: -5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Outer Ring (Trailing velocity stretched design) */
+.custom-cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px dashed rgba(0, 212, 255, 0.7); /* Dashed futuristic style */
+  border-radius: 50%;
+  margin-top: -16px;
+  margin-left: -16px;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  
+  /* Smooth scale/color/border-radius morph transition */
+  transition: width 0.25s ease, 
+              height 0.25s ease, 
+              margin 0.25s ease,
+              border-color 0.25s ease,
+              border-style 0.25s ease,
+              border-radius 0.25s ease,
+              background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              opacity 0.3s ease;
+}
+
+/* Morphs into a glowing rounded-square bracket target framing the item! */
+.custom-cursor-ring.hovered {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  border: 1.5px solid rgba(108, 99, 255, 0.9); /* Solid neon purple */
+  border-radius: 50%; /* Keep as circle, no square morph */
+  background-color: rgba(108, 99, 255, 0.05);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+}
+
+/* Hide when cursor leaves window */
+.custom-cursor-dot.hidden,
+.custom-cursor-ring.hidden {
+  opacity: 0;
+}

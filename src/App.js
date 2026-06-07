@@ -11,10 +11,12 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThreeScene from './components/ThreeScene';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <div className="app">
+      <CustomCursor />
       <ThreeScene />
       <Navbar />
       <main className="main-content">

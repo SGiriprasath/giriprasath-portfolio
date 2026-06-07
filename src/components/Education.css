@@ -13,17 +13,36 @@
   padding-left: 2.5rem;
 }
 
-/* Vertical connector line */
-.timeline-line {
+/* Vertical connector line segment inside each item */
+.timeline-item::before {
+  content: '';
   position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
-  left: 1.1rem;
+  top: 2.7rem; /* Start below the dot */
+  bottom: -2.3rem; /* Extend to the next dot */
+  left: -1.4rem; /* Center of the dot */
   width: 2px;
-  background: linear-gradient(180deg, #6c63ff 0%, #00d4ff 50%, #ff6b6b 100%);
+  background: rgba(108, 99, 255, 0.4);
+  z-index: 0;
   border-radius: 2px;
-  opacity: 0.4;
+  pointer-events: none;
 }
+
+/* Custom segment colors transitioning to the next dot color */
+.timeline-item--primary::before {
+  background: linear-gradient(180deg, rgba(108, 99, 255, 0.6) 0%, rgba(0, 212, 255, 0.4) 100%);
+}
+.timeline-item--secondary::before {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.6) 0%, rgba(255, 107, 107, 0.4) 100%);
+}
+.timeline-item--accent::before {
+  background: linear-gradient(180deg, rgba(255, 107, 107, 0.6) 0%, rgba(108, 99, 255, 0.4) 100%);
+}
+
+/* Remove connector line under the last child (SSLC) */
+.timeline-item:last-child::before {
+  display: none !important;
+}
+
 
 /* ===========================
    TIMELINE ITEM
@@ -166,6 +185,7 @@
   .education-section { padding: 2rem 0; }
   .timeline { padding-left: 2rem; }
   .timeline-dot { left: -2rem; width: 2rem; height: 2rem; font-size: 0.9rem; }
+  .timeline-item::before { left: -1.0rem; top: 2.3rem; bottom: -2.1rem; }
   .timeline-card { padding: 1.3rem 1.5rem; }
   .timeline-degree { font-size: 1rem; }
   .timeline-institution { font-size: 0.85rem; }
@@ -175,6 +195,7 @@
 @media (max-width: 480px) {
   .timeline { padding-left: 1.8rem; }
   .timeline-dot { left: -1.8rem; width: 1.75rem; height: 1.75rem; font-size: 0.8rem; }
+  .timeline-item::before { left: -0.925rem; top: 2.0rem; bottom: -1.8rem; }
   .timeline-card { padding: 1.1rem 1.2rem; border-radius: 14px; }
   .timeline-card-top { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
   .timeline-year { align-self: flex-start; }
@@ -185,6 +206,7 @@
 @media (max-width: 360px) {
   .timeline { padding-left: 1.5rem; }
   .timeline-dot { left: -1.5rem; width: 1.5rem; height: 1.5rem; font-size: 0.7rem; }
+  .timeline-item::before { left: -0.75rem; top: 1.8rem; bottom: -1.6rem; }
   .timeline-card { padding: 0.9rem 1rem; }
   .grade-badge { font-size: 0.78rem; }
 }

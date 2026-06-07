@@ -22,8 +22,8 @@ const educationData = [
     color: 'secondary',
   },
   {
-    degree: 'HSC (Higher Secondary)',
-    institution: 'Higher Secondary School',
+    degree: 'Higher Secondary School Certificate (HSC)',
+    institution: 'P K P Swamy Matriculation Higher Secondary School',
     grade: '87%',
     gradeIcon: '🏆',
     period: '2020 – 2021',
@@ -31,8 +31,8 @@ const educationData = [
     color: 'accent',
   },
   {
-    degree: 'SSLC (Secondary)',
-    institution: 'Secondary School',
+    degree: 'Secondary School Leaving Certificate (SSLC)',
+    institution: 'P K P Swamy Matriculation Higher Secondary School',
     grade: '83%',
     gradeIcon: '🏆',
     period: '2018 – 2019',
@@ -98,7 +98,6 @@ function Education() {
             </motion.div>
           </motion.div>
         ))}
-        <div className="timeline-line" />
       </div>
     </motion.section>
   );
