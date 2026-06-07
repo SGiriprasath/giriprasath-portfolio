@@ -15,7 +15,8 @@
   padding: 2.5rem 2.8rem;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(108, 99, 255, 0.05);
   backdrop-filter: blur(16px);
-  max-width: 720px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .contact-form {
