@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -14,6 +14,21 @@ import ThreeScene from './components/ThreeScene';
 import CustomCursor from './components/CustomCursor';
 
 function App() {
+  useEffect(() => {
+    // Smoothly fade out the HTML preloader once the React app has mounted
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('loading');
+        // Fully remove the loader markup from the DOM after the opacity transition ends
+        setTimeout(() => {
+          preloader.remove();
+        }, 900);
+      }, 1800); // Gives users enough time to appreciate the premium loading animation
+    }
+  }, []);
+
   return (
     <div className="app">
       <CustomCursor />
