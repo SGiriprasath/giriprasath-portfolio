@@ -6,7 +6,8 @@ function ThreeScene() {
   const mouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    const currentMount = mountRef.current;
+    if (!currentMount) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -15,7 +16,7 @@ function ThreeScene() {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    mountRef.current.appendChild(renderer.domElement);
+    currentMount.appendChild(renderer.domElement);
 
     camera.position.z = 6;
 
@@ -141,8 +142,8 @@ function ThreeScene() {
       geometry.dispose();
       material.dispose();
       renderer.dispose();
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (currentMount && renderer.domElement) {
+        currentMount.removeChild(renderer.domElement);
       }
     };
   }, []);
